@@ -36,21 +36,21 @@ struct Address {
 
 // address collection
 var addresses = [
-    Address(name: "磯部クリニック", phone: "0545383910", area: "須津", address: "富士市川尻193", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "")),
-    Address(name: "遠藤クリニック", phone: "0545340048", area: "須津", address: "富士市神谷527-1", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "")),
-    Address(name: "高木内科循環器医院", phone: "0545342755", area:"須津", address: "富士市中里934-40", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "○", VZV: "", JE: "2", DT: "○", HPV: "", flu: "C", BCG: "")),
-    Address(name: "吉見整形外科", phone: "0545391139", area: "須津", address: "富士市増川444-12", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "D", BCG: "")),
-    Address(name: "小林医院", phone: "0545330660", area: "元吉原", address: "富士市今井1-1-21", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "D", BCG: "")),
-    Address(name: "幸治小児科医院", phone: "0545713643", area: "鷹岡", address: "富士市鷹岡本町4", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "", flu: "A", BCG: "")),
-    Address(name: "戸田整形外科", phone: "0545732200", area: "鷹岡", address: "富士市入山瀬710-1", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "C",  BCG: "")),
-    Address(name: "なかじま眼科", phone: "0545720011", area: "鷹岡", address: "富士市入山瀬955-5", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "D", BCG: "")),
-    Address(name: "平野医院", phone: "0545716611", area: "鷹岡", address: "富士市厚原64", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "C", BCG: "")),
-    Address(name: "キタザトクリニック", phone: "0545725000", area: "丘", address: "富士市厚原1941-3", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "C", BCG: "")),
-    Address(name: "せきクリニック", phone: "0545732332", area: "丘", address: "富士市伝法656-1", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "2", DT: "○", HPV: "○", flu: "C", BCG: "")),
-    Address(name: "つちや耳鼻咽喉科医院", phone: "0545308003", area: "丘", address: "富士市厚原589-3", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "B", BCG: "")),
-    Address(name: "望月医院", phone: "0545713392", area: "丘", address: "富士市厚原755-4", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "", flu: "A", BCG: "")),
-    Address(name: "山崎医院", phone: "0545713315", area: "丘", address: "富士市厚原675-3", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "○", flu: "C", BCG: "")),
-    Address(name: "フィランセ", phone: "0545648990", area: "富士駅北", address: "富士市本市場432-1", vaccination: Vaccination(Rota: "", Hib: "", PP: "", HBV: "", DPT_IPV: "", MR: "", VZV: "", JE: "", DT: "", HPV: "", flu: "", BCG: "○"))
+    Address(name: "磯部クリニック", phone: "0545383910", area: "須津", address: "富士市川尻193", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "✖︎")),
+    Address(name: "遠藤クリニック", phone: "0545340048", area: "須津", address: "富士市神谷527-1", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "✖︎")),
+    Address(name: "高木内科循環器医院", phone: "0545342755", area:"須津", address: "富士市中里934-40", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "○", VZV: "✖︎", JE: "2", DT: "○", HPV: "✖︎", flu: "C", BCG: "✖︎")),
+    Address(name: "吉見整形外科", phone: "0545391139", area: "須津", address: "富士市増川444-12", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎")),
+    Address(name: "小林医院", phone: "0545330660", area: "元吉原", address: "富士市今井1-1-21", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎")),
+    Address(name: "幸治小児科医院", phone: "0545713643", area: "鷹岡", address: "富士市鷹岡本町4", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "✖︎", flu: "A", BCG: "✖︎")),
+    Address(name: "戸田整形外科", phone: "0545732200", area: "鷹岡", address: "富士市入山瀬710-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C",  BCG: "✖︎")),
+    Address(name: "なかじま眼科", phone: "0545720011", area: "鷹岡", address: "富士市入山瀬955-5", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎")),
+    Address(name: "平野医院", phone: "0545716611", area: "鷹岡", address: "富士市厚原64", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C", BCG: "✖︎")),
+    Address(name: "キタザトクリニック", phone: "0545725000", area: "丘", address: "富士市厚原1941-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C", BCG: "✖︎")),
+    Address(name: "せきクリニック", phone: "0545732332", area: "丘", address: "富士市伝法656-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "2", DT: "○", HPV: "○", flu: "C", BCG: "✖︎")),
+    Address(name: "つちや耳鼻咽喉科医院", phone: "0545308003", area: "丘", address: "富士市厚原589-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "B", BCG: "✖︎")),
+    Address(name: "望月医院", phone: "0545713392", area: "丘", address: "富士市厚原755-4", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "✖︎", flu: "A", BCG: "✖︎")),
+    Address(name: "山崎医院", phone: "0545713315", area: "丘", address: "富士市厚原675-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "○", flu: "C", BCG: "✖︎")),
+    Address(name: "フィランセ", phone: "0545648990", area: "富士駅北", address: "富士市本市場432-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "✖︎", BCG: "○"))
 ]
 
 // MapVC
@@ -83,6 +83,7 @@ class MapViewController: UIViewController {
         let map = MKMapView()
         // 自動サイズ補正をoff
         map.translatesAutoresizingMaskIntoConstraints = false
+        map.mapType = .standard
         return map
     }()
     

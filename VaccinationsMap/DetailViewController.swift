@@ -4,13 +4,16 @@ class DetailViewController: UIViewController {
     
     let sectionName: String
     let vaccinationFacility: [[String]]
+    let tableLabel = ["住所", "電話番号"]
+    let tableText: [String]
     
     init(sectionName: String) {
         self.sectionName = sectionName
         self.vaccinationFacility = [ vaccinationFacilityList[ sectionNameList.index(of: [sectionName])!]]
+        self.tableText = [addresses[sectionNameList.index(of: [sectionName])!].address, addresses[sectionNameList.index(of: [sectionName])!].phone]
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -19,7 +22,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // UICollectionViewを生成、書式設定
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 180), collectionViewLayout: UICollectionViewFlowLayout())
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height), collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = .white
         // CVCell classを"Cell"という名前でCVに登録
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -29,8 +32,14 @@ class DetailViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        let tableVeiw = UITableView(frame: CGRect(x: 0, y: 180, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        tableVeiw.backgroundColor = .white
+        tableVeiw.allowsSelection = false
+        tableVeiw.dataSource = self
+        
         // CVをDetailVCに追加
         self.view.addSubview(collectionView)
+        collectionView.addSubview(tableVeiw)
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,5 +104,31 @@ extension DetailViewController:  UICollectionViewDelegateFlowLayout {
     // headerのサイズ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.size.width, height:50)
+    }
+}
+
+extension DetailViewController: UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        return 2
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+        
+        cell.textLabel?.text = tableLabel[indexPath.row]
+        cell.textLabel?.font = .systemFont(ofSize: 14, weight: UIFont.Weight(rawValue: 1))
+        cell.textLabel?.textColor = UIColor.darkGray
+        cell.detailTextLabel?.text = tableText[indexPath.row]
+        cell.detailTextLabel?.font = .systemFont(ofSize: 14, weight: UIFont.Weight(rawValue: 1))
+        cell.detailTextLabel?.textColor = UIColor.darkGray
+        cell.backgroundColor = .white
+        
+        return cell
     }
 }
