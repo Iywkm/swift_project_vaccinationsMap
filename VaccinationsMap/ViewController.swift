@@ -1,0 +1,19 @@
+//
+//  ViewController.swift
+//  VaccinationsMap
+//
+//  Created by Yuki Iwama on 2021/12/01.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+}
+
