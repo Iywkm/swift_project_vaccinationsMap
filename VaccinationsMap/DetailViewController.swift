@@ -9,8 +9,8 @@ class DetailViewController: UIViewController {
     
     init(sectionName: String) {
         self.sectionName = sectionName
-        self.vaccinationFacility = [ vaccinationFacilityList[ sectionNameList.index(of: [sectionName])!]]
-        self.tableText = [addresses[sectionNameList.index(of: [sectionName])!].address, addresses[sectionNameList.index(of: [sectionName])!].phone]
+        self.vaccinationFacility = [ vaccinationFacilityList[ sectionNameList.firstIndex(of: [sectionName])!]]
+        self.tableText = [addresses[sectionNameList.firstIndex(of: [sectionName])!].address, addresses[sectionNameList.firstIndex(of: [sectionName])!].phone]
         super.init(nibName: nil, bundle: nil)
     }
     

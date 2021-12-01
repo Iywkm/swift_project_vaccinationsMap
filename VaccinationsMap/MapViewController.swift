@@ -105,6 +105,9 @@ class MapViewController: UIViewController {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .followWithHeading
+        
         // pinをmap上に作成
         addPin()
         
@@ -122,14 +125,21 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pinView = MKPinAnnotationView()
+        pinView.annotation = annotation
+        if annotation.title != "My Location" {
+            pinView.image = UIImage(named: "marker")
+            pinView.canShowCallout = true
+            return pinView
+        } else {
+            return nil
+        }
+    }
+    
     // pinをタップしたときのevent
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation {
-            let coordinate = annotation.coordinate
-            let center = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let region = MKCoordinateRegion(center: center, span: span)
-            mapView.region = region
             let DetailVC = DetailViewController(sectionName: annotation.title!!)
             fpc.set(contentViewController: DetailVC)
             
@@ -182,7 +192,6 @@ extension MapViewController: CLLocationManagerDelegate {
             let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
             let region = MKCoordinateRegion(center: coordinate, span: span)
             mapView.region = region
-            mapView.userTrackingMode = .follow
         }
     }
 }
