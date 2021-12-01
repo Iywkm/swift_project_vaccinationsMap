@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		B67BAA3727576AC100B73D97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA3627576AC100B73D97 /* AppDelegate.swift */; };
 		B67BAA3927576AC100B73D97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA3827576AC100B73D97 /* SceneDelegate.swift */; };
-		B67BAA3B27576AC100B73D97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA3A27576AC100B73D97 /* ViewController.swift */; };
+		B67BAA3B27576AC100B73D97 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA3A27576AC100B73D97 /* MapViewController.swift */; };
 		B67BAA3E27576AC100B73D97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67BAA3C27576AC100B73D97 /* Main.storyboard */; };
 		B67BAA4027576AC300B73D97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67BAA3F27576AC300B73D97 /* Assets.xcassets */; };
 		B67BAA4327576AC300B73D97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B67BAA4127576AC300B73D97 /* LaunchScreen.storyboard */; };
 		B67BAA4E27576AC300B73D97 /* VaccinationsMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA4D27576AC300B73D97 /* VaccinationsMapTests.swift */; };
 		B67BAA5827576AC300B73D97 /* VaccinationsMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA5727576AC300B73D97 /* VaccinationsMapUITests.swift */; };
 		B67BAA5A27576AC300B73D97 /* VaccinationsMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA5927576AC300B73D97 /* VaccinationsMapUITestsLaunchTests.swift */; };
+		B67BAA6727576D2E00B73D97 /* ListModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA6627576D2E00B73D97 /* ListModalViewController.swift */; };
+		B67BAA6927576D4600B73D97 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA6827576D4600B73D97 /* DetailViewController.swift */; };
+		B67BAA6B27576D6E00B73D97 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA6A27576D6E00B73D97 /* CollectionViewCell.swift */; };
+		B67BAA6D27576D8300B73D97 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA6C27576D8300B73D97 /* CollectionViewHeader.swift */; };
+		B67BAA7327576ECE00B73D97 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B67BAA7227576ECE00B73D97 /* FloatingPanel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +44,7 @@
 		B67BAA3327576AC100B73D97 /* VaccinationsMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VaccinationsMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67BAA3627576AC100B73D97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B67BAA3827576AC100B73D97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B67BAA3A27576AC100B73D97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B67BAA3A27576AC100B73D97 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B67BAA3D27576AC100B73D97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B67BAA3F27576AC300B73D97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B67BAA4227576AC300B73D97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,10 @@
 		B67BAA5327576AC300B73D97 /* VaccinationsMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VaccinationsMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67BAA5727576AC300B73D97 /* VaccinationsMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationsMapUITests.swift; sourceTree = "<group>"; };
 		B67BAA5927576AC300B73D97 /* VaccinationsMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationsMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B67BAA6627576D2E00B73D97 /* ListModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModalViewController.swift; sourceTree = "<group>"; };
+		B67BAA6827576D4600B73D97 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B67BAA6A27576D6E00B73D97 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		B67BAA6C27576D8300B73D97 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67BAA7327576ECE00B73D97 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,11 +111,15 @@
 			children = (
 				B67BAA3627576AC100B73D97 /* AppDelegate.swift */,
 				B67BAA3827576AC100B73D97 /* SceneDelegate.swift */,
-				B67BAA3A27576AC100B73D97 /* ViewController.swift */,
+				B67BAA3A27576AC100B73D97 /* MapViewController.swift */,
 				B67BAA3C27576AC100B73D97 /* Main.storyboard */,
 				B67BAA3F27576AC300B73D97 /* Assets.xcassets */,
 				B67BAA4127576AC300B73D97 /* LaunchScreen.storyboard */,
 				B67BAA4427576AC300B73D97 /* Info.plist */,
+				B67BAA6627576D2E00B73D97 /* ListModalViewController.swift */,
+				B67BAA6827576D4600B73D97 /* DetailViewController.swift */,
+				B67BAA6A27576D6E00B73D97 /* CollectionViewCell.swift */,
+				B67BAA6C27576D8300B73D97 /* CollectionViewHeader.swift */,
 			);
 			path = VaccinationsMap;
 			sourceTree = "<group>";
@@ -143,6 +157,9 @@
 			dependencies = (
 			);
 			name = VaccinationsMap;
+			packageProductDependencies = (
+				B67BAA7227576ECE00B73D97 /* FloatingPanel */,
+			);
 			productName = VaccinationsMap;
 			productReference = B67BAA3327576AC100B73D97 /* VaccinationsMap.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +232,9 @@
 				Base,
 			);
 			mainGroup = B67BAA2A27576AC100B73D97;
+			packageReferences = (
+				B67BAA7127576ECE00B73D97 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+			);
 			productRefGroup = B67BAA3427576AC100B73D97 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,7 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B67BAA3B27576AC100B73D97 /* ViewController.swift in Sources */,
+				B67BAA6727576D2E00B73D97 /* ListModalViewController.swift in Sources */,
+				B67BAA6D27576D8300B73D97 /* CollectionViewHeader.swift in Sources */,
+				B67BAA3B27576AC100B73D97 /* MapViewController.swift in Sources */,
+				B67BAA6B27576D6E00B73D97 /* CollectionViewCell.swift in Sources */,
+				B67BAA6927576D4600B73D97 /* DetailViewController.swift in Sources */,
 				B67BAA3727576AC100B73D97 /* AppDelegate.swift in Sources */,
 				B67BAA3927576AC100B73D97 /* SceneDelegate.swift in Sources */,
 			);
@@ -443,7 +467,6 @@
 				INFOPLIST_FILE = VaccinationsMap/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +493,6 @@
 				INFOPLIST_FILE = VaccinationsMap/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -618,6 +640,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B67BAA7127576ECE00B73D97 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/YukiIwamaTMC/FloatingPanel";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B67BAA7227576ECE00B73D97 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B67BAA7127576ECE00B73D97 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B67BAA2B27576AC100B73D97 /* Project object */;
 }
