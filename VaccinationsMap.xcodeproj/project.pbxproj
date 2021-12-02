@@ -60,6 +60,8 @@
 		B67BAA6A27576D6E00B73D97 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		B67BAA6C27576D8300B73D97 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 		B67BAA7427579FFE00B73D97 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		B67BAA7A27584EFA00B73D97 /* maps.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maps.gif; sourceTree = "<group>"; };
+		B67BAA7B27584EFA00B73D97 /* stocks.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = stocks.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		B67BAA2A27576AC100B73D97 = {
 			isa = PBXGroup;
 			children = (
+				B67BAA7827584EFA00B73D97 /* assets */,
 				B67BAA7427579FFE00B73D97 /* img */,
 				B67BAA3527576AC100B73D97 /* VaccinationsMap */,
 				B67BAA4C27576AC300B73D97 /* VaccinationsMapTests */,
@@ -142,6 +145,15 @@
 				B67BAA5927576AC300B73D97 /* VaccinationsMapUITestsLaunchTests.swift */,
 			);
 			path = VaccinationsMapUITests;
+			sourceTree = "<group>";
+		};
+		B67BAA7827584EFA00B73D97 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				B67BAA7A27584EFA00B73D97 /* maps.gif */,
+				B67BAA7B27584EFA00B73D97 /* stocks.gif */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
