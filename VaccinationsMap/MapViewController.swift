@@ -3,7 +3,7 @@ import MapKit
 import CoreLocation
 import FloatingPanel
 
-let vaccinationNameList = [["Rota", "Hib", "PP", "HBV", "DPT_IPV", "MR", "VZV", "JE", "DT", "HPV", "flu", "BCG"]]
+let vaccinationNameList = [["ロタ", "ヒブ", "小児肺炎", "B型肝炎", "4種混合", "MR", "水痘", "日本脳炎", "2種混合", "子宮頸がん", "インフル", "BCG"]]
 
 // 予防接種struct
 struct Vaccination {
@@ -24,6 +24,28 @@ struct Vaccination {
         return [self.Rota, self.Hib, self.PP, self.HBV, self.DPT_IPV, self.MR, self.VZV, self.JE, self.DT, self.HPV, self.flu, self.BCG]
     }
 }
+// 営業日struct
+struct WorkingDay {
+    var amMon: String
+    var pmMon: String
+    var amTue: String
+    var pmTue: String
+    var amWed: String
+    var pmWed: String
+    var amThi: String
+    var pmThi: String
+    var amFri: String
+    var pmFri: String
+    var amSat: String
+    var pmSat: String
+    var amSun: String
+    var pmSun: String
+    
+    func getData() -> Array<Array<String>>{
+        return [["", "月", "火", "水", "木", "金", "土", "日"], ["AM", self.amMon, self.amTue, self.amWed, self.amThi, self.amFri, self.amSat, self.amSun], ["PM", self.pmMon, self.pmTue, self.pmWed, self.pmThi, self.pmFri, self.pmSat, self.pmSun]]
+    }
+}
+
 
 // 病院Address struct
 struct Address {
@@ -32,25 +54,26 @@ struct Address {
     var area: String
     var address: String
     var vaccination:Vaccination
+    var workday: WorkingDay
 }
 
 // address collection
 var addresses = [
-    Address(name: "磯部クリニック", phone: "0545383910", area: "須津", address: "富士市川尻193", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "✖︎")),
-    Address(name: "遠藤クリニック", phone: "0545340048", area: "須津", address: "富士市神谷527-1", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "✖︎")),
-    Address(name: "高木内科循環器医院", phone: "0545342755", area:"須津", address: "富士市中里934-40", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "○", VZV: "✖︎", JE: "2", DT: "○", HPV: "✖︎", flu: "C", BCG: "✖︎")),
-    Address(name: "吉見整形外科", phone: "0545391139", area: "須津", address: "富士市増川444-12", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎")),
-    Address(name: "小林医院", phone: "0545330660", area: "元吉原", address: "富士市今井1-1-21", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎")),
-    Address(name: "幸治小児科医院", phone: "0545713643", area: "鷹岡", address: "富士市鷹岡本町4", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "✖︎", flu: "A", BCG: "✖︎")),
-    Address(name: "戸田整形外科", phone: "0545732200", area: "鷹岡", address: "富士市入山瀬710-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C",  BCG: "✖︎")),
-    Address(name: "なかじま眼科", phone: "0545720011", area: "鷹岡", address: "富士市入山瀬955-5", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎")),
-    Address(name: "平野医院", phone: "0545716611", area: "鷹岡", address: "富士市厚原64", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C", BCG: "✖︎")),
-    Address(name: "キタザトクリニック", phone: "0545725000", area: "丘", address: "富士市厚原1941-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C", BCG: "✖︎")),
-    Address(name: "せきクリニック", phone: "0545732332", area: "丘", address: "富士市伝法656-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "2", DT: "○", HPV: "○", flu: "C", BCG: "✖︎")),
-    Address(name: "つちや耳鼻咽喉科医院", phone: "0545308003", area: "丘", address: "富士市厚原589-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "B", BCG: "✖︎")),
-    Address(name: "望月医院", phone: "0545713392", area: "丘", address: "富士市厚原755-4", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "✖︎", flu: "A", BCG: "✖︎")),
-    Address(name: "山崎医院", phone: "0545713315", area: "丘", address: "富士市厚原675-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "○", flu: "C", BCG: "✖︎")),
-    Address(name: "フィランセ", phone: "0545648990", area: "富士駅北", address: "富士市本市場432-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "✖︎", BCG: "○"))
+    Address(name: "磯部クリニック", phone: "0545383910", area: "須津", address: "富士市川尻193", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "✖︎"), workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "遠藤クリニック", phone: "0545340048", area: "須津", address: "富士市神谷527-1", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "○", flu: "A", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "高木内科循環器医院", phone: "0545342755", area:"須津", address: "富士市中里934-40", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "○", VZV: "✖︎", JE: "2", DT: "○", HPV: "✖︎", flu: "C", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "吉見整形外科", phone: "0545391139", area: "須津", address: "富士市増川444-12", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "小林医院", phone: "0545330660", area: "元吉原", address: "富士市今井1-1-21", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "幸治小児科医院", phone: "0545713643", area: "鷹岡", address: "富士市鷹岡本町4", vaccination: Vaccination(Rota: "○", Hib: "○", PP: "○", HBV: "○", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "✖︎", flu: "A", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "○", amSun: "", pmSun: "")),
+    Address(name: "戸田整形外科", phone: "0545732200", area: "鷹岡", address: "富士市入山瀬710-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C",  BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "なかじま眼科", phone: "0545720011", area: "鷹岡", address: "富士市入山瀬955-5", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "D", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "平野医院", phone: "0545716611", area: "鷹岡", address: "富士市厚原64", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "キタザトクリニック", phone: "0545725000", area: "丘", address: "富士市厚原1941-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "C", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "せきクリニック", phone: "0545732332", area: "丘", address: "富士市伝法656-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "2", DT: "○", HPV: "○", flu: "C", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "つちや耳鼻咽喉科医院", phone: "0545308003", area: "丘", address: "富士市厚原589-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "B", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "望月医院", phone: "0545713392", area: "丘", address: "富士市厚原755-4", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "○", MR: "○", VZV: "○", JE: "○", DT: "○", HPV: "✖︎", flu: "A", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "山崎医院", phone: "0545713315", area: "丘", address: "富士市厚原675-3", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "○", flu: "C", BCG: "✖︎"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "", amFri: "○", pmFri: "○", amSat: "○", pmSat: "", amSun: "", pmSun: "")),
+    Address(name: "フィランセ", phone: "0545648990", area: "富士駅北", address: "富士市本市場432-1", vaccination: Vaccination(Rota: "✖︎", Hib: "✖︎", PP: "✖︎", HBV: "✖︎", DPT_IPV: "✖︎", MR: "✖︎", VZV: "✖︎", JE: "✖︎", DT: "✖︎", HPV: "✖︎", flu: "✖︎", BCG: "○"),workday: WorkingDay(amMon: "○", pmMon: "○", amTue: "○", pmTue: "○", amWed: "○", pmWed: "○", amThi: "○", pmThi: "○", amFri: "○", pmFri: "○", amSat: "○", pmSat: "○", amSun: "○", pmSun: "○"))
 ]
 
 // MapVC
@@ -117,6 +140,7 @@ class MapViewController: UIViewController {
         fpc.addPanel(toParent: self)
         //        fpc.track(scrollView: ListModalVC.scrollView)
         fpc.surfaceView.cornerRadius = 15.0
+        fpc.surfaceView.backgroundColor = UIColor(red: 102/255, green: 205/255, blue: 170/255, alpha: 0)
         
         ListModalVC.delegate = self
     }

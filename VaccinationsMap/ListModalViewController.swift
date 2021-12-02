@@ -70,7 +70,6 @@ extension ListModalViewController: UICollectionViewDataSource {
         let nameLabel = vaccinationNameList[0][indexPath.item]
         let textLabel = vaccinationFacilityList[indexPath.section][indexPath.item]
         // cellのnameLabelとtextLanelにtextを追加
-        cell.backgroundColor = .lightGray
         cell.setUpContents(textName: nameLabel, text: textLabel)
         return cell
     }
@@ -80,6 +79,7 @@ extension ListModalViewController: UICollectionViewDataSource {
         // headerを生成
         let collectionViewHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! CollectionViewHeader
         let headerText = sectionNameList[indexPath.section][indexPath.item]
+        collectionViewHeader.backgroundColor = .white
         // headerのtitleLabelにtextを追加
         collectionViewHeader.setUpContents(titleText: headerText)
         return collectionViewHeader
@@ -89,7 +89,7 @@ extension ListModalViewController: UICollectionViewDataSource {
 extension ListModalViewController:  UICollectionViewDelegateFlowLayout {
     // cellのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 60)
+        return CGSize(width: 55, height: 60)
     }
     
     // cellの余白
@@ -102,63 +102,3 @@ extension ListModalViewController:  UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.view.frame.size.width, height:50)
     }
 }
-
-
-//// ListModalVC
-//class ListModalViewController: UIViewController {
-//
-//    weak var delegate: ListModalViewControllerDelegate? = nil
-//
-//    // tableViewを生成
-//    lazy var tableView: UITableView = {
-//        let tableView = UITableView(frame: .zero)
-//        tableView.backgroundColor = .white
-//        tableView.dataSource = self
-//        tableView.contentInsetAdjustmentBehavior = .always
-//        return tableView
-//    }()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // subViewにtableViewを追加
-//        view.addSubview(tableView)
-//
-//        // tableViewの配置を設定
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//        ])
-//
-//        tableView.delegate = self
-//    }
-//}
-//
-//// UITableViewDataSourceを追加
-//extension ListModalViewController: UITableViewDataSource {
-//    // tableViewの行数を指定
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return addresses.count
-//    }
-//
-//    // tableViewの各cellにデータを追加
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "hospitalCell")
-//        cell.textLabel?.text = addresses[indexPath.row].name
-//        cell.detailTextLabel?.text = addresses[indexPath.row].address
-//        cell.accessoryType = .disclosureIndicator
-//        return cell
-//    }
-//}
-//
-//// UItableViewDelegateを追加
-//extension ListModalViewController: UITableViewDelegate {
-//    // ListModalVCDelegateのchangeRegionにaddressを渡す
-//    func tableView(_ tableView: UITableView,
-//                   didSelectRowAt indexPath: IndexPath) {
-//        delegate?.changeRegion(withAddress: addresses[indexPath.row].address)
-//    }
-//}
-//

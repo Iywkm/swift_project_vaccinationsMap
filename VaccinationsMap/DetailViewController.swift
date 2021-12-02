@@ -47,14 +47,6 @@ class DetailViewController: UIViewController {
     }
 }
 
-// UICVDelegateを追加
-extension DetailViewController: UICollectionViewDelegate {
-    // セル選択時の処理
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(vaccinationNameList[indexPath.section][indexPath.row])
-    }
-}
-
 //　UICVDataSourceを追加
 extension DetailViewController: UICollectionViewDataSource {
     // 各section内におけるcellの数を返す
@@ -74,7 +66,6 @@ extension DetailViewController: UICollectionViewDataSource {
         let nameLabel = vaccinationNameList[indexPath.section][indexPath.item]
         let textLabel = vaccinationFacility[indexPath.section][indexPath.item]
         // cellのnameLabelとtextLanelにtextを追加
-        cell.backgroundColor = .lightGray
         cell.setUpContents(textName: nameLabel, text: textLabel)
         return cell
     }
@@ -88,12 +79,13 @@ extension DetailViewController: UICollectionViewDataSource {
         collectionViewHeader.setUpContents(titleText: headerText)
         return collectionViewHeader
     }
+    
 }
 
 extension DetailViewController:  UICollectionViewDelegateFlowLayout {
     // cellのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 60)
+        return CGSize(width: 55, height: 60)
     }
     
     // cellの余白

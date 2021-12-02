@@ -22,6 +22,7 @@
 		B67BAA6D27576D8300B73D97 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BAA6C27576D8300B73D97 /* CollectionViewHeader.swift */; };
 		B67BAA7327576ECE00B73D97 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B67BAA7227576ECE00B73D97 /* FloatingPanel */; };
 		B67BAA7527579FFE00B73D97 /* img in Resources */ = {isa = PBXBuildFile; fileRef = B67BAA7427579FFE00B73D97 /* img */; };
+		B67BAA812758878E00B73D97 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = B67BAA802758878E00B73D97 /* demo.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B67BAA7427579FFE00B73D97 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		B67BAA7A27584EFA00B73D97 /* maps.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maps.gif; sourceTree = "<group>"; };
 		B67BAA7B27584EFA00B73D97 /* stocks.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = stocks.gif; sourceTree = "<group>"; };
+		B67BAA802758878E00B73D97 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = demo.gif; path = ../../../Desktop/demo.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		B67BAA7827584EFA00B73D97 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				B67BAA802758878E00B73D97 /* demo.gif */,
 				B67BAA7A27584EFA00B73D97 /* maps.gif */,
 				B67BAA7B27584EFA00B73D97 /* stocks.gif */,
 			);
@@ -268,6 +271,7 @@
 			files = (
 				B67BAA7527579FFE00B73D97 /* img in Resources */,
 				B67BAA4327576AC300B73D97 /* LaunchScreen.storyboard in Resources */,
+				B67BAA812758878E00B73D97 /* demo.gif in Resources */,
 				B67BAA4027576AC300B73D97 /* Assets.xcassets in Resources */,
 				B67BAA3E27576AC100B73D97 /* Main.storyboard in Resources */,
 			);
