@@ -19,6 +19,9 @@
 # 使用パッケージ
 
 セミモーダルを実装するために[scenee/FloatingPanel](https://github.com/scenee/FloatingPanel)を使用
-- 使用例
-![Maps]
-![Stocks]
+
+【使用例】
+
+![Maps](https://github.com/YukiIwamaTMC/swift_project_vaccinationsMap/blob/main/assets/maps.gif)
+![Stocks](https://github.com/YukiIwamaTMC/swift_project_vaccinationsMap/blob/main/assets/stocks.gif)
+
