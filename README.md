@@ -2,7 +2,7 @@
 
 子ども用の予防接種を実施している静岡県富士市内の病院の情報を提供する。
 
-![demo](https://github.com/YukiIwamaTMC/swift_project_vaccinationsMap/blob/main/assets/demoGif.gif)
+![demo](https://github.com/YukiIwamaTMC/swift_project_vaccinationsMap/blob/main/assets/demo.gif)
 
 # 機能
 
