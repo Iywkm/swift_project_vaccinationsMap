@@ -93,6 +93,13 @@ class MapViewController: UIViewController {
         }
     }
     
+    
+    @objc func buttonTapped(_ sender: Any) {
+        let url = URL(string: "https://www.city.fuji.shizuoka.jp/kenkou/c0107/fmervo0000001149.html")
+        if UIApplication.shared.canOpenURL(url!) {
+            UIApplication.shared.open(url!)
+        }
+    }
     // fpcの型を宣言
     var fpc: FloatingPanelController!
     
@@ -143,6 +150,14 @@ class MapViewController: UIViewController {
         fpc.surfaceView.backgroundColor = UIColor(red: 102/255, green: 205/255, blue: 170/255, alpha: 0)
         
         ListModalVC.delegate = self
+        
+        let button = UIButton()
+        
+        button.frame = CGRect(x: 10, y: 50, width: 30, height: 30)
+        button.setImage(UIImage(named: "fuji"), for: .normal)
+        button.addTarget(self, action: #selector(MapViewController.buttonTapped(_:)), for: .touchUpInside)
+        
+        mapView.addSubview(button)
     }
     
 }
