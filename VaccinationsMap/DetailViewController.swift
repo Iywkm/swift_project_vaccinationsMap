@@ -4,13 +4,13 @@ class DetailViewController: UIViewController {
     
     let sectionName: String
     let vaccinationFacility: [[String]]
-    let tableLabel = ["住所", "電話番号"]
+    let tableLabel = ["住所", "電話番号", "URL"]
     let tableText: [String]
     
     init(sectionName: String) {
         self.sectionName = sectionName
         self.vaccinationFacility = [ vaccinationFacilityList[ sectionNameList.firstIndex(of: [sectionName])!]]
-        self.tableText = [addresses[sectionNameList.firstIndex(of: [sectionName])!].address, addresses[sectionNameList.firstIndex(of: [sectionName])!].phone]
+        self.tableText = [addresses[sectionNameList.firstIndex(of: [sectionName])!].address, addresses[sectionNameList.firstIndex(of: [sectionName])!].phone, addresses[sectionNameList.firstIndex(of: [sectionName])!].url]
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,12 +34,12 @@ class DetailViewController: UIViewController {
         
         let tableVeiw = UITableView(frame: CGRect(x: 0, y: 180, width: self.view.frame.size.width, height: self.view.frame.size.height))
         tableVeiw.backgroundColor = .white
-        tableVeiw.allowsSelection = false
+        tableVeiw.delegate = self
         tableVeiw.dataSource = self
         
         // CVをDetailVCに追加
         self.view.addSubview(collectionView)
-        collectionView.addSubview(tableVeiw)
+        self.view.addSubview(tableVeiw)
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,7 +104,7 @@ extension DetailViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(
@@ -122,5 +122,16 @@ extension DetailViewController: UITableViewDataSource {
         cell.backgroundColor = .white
         
         return cell
+    }
+}
+
+extension DetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.cellForRow(at: indexPath)?.textLabel?.text! == "URL" {
+            let url = URL(string: (tableView.cellForRow(at: indexPath)?.detailTextLabel?.text!)!)
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!)
+            }
+        }
     }
 }
