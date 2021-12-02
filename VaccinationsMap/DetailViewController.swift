@@ -127,6 +127,7 @@ extension DetailViewController: UITableViewDataSource {
 
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         if tableView.cellForRow(at: indexPath)?.textLabel?.text! == "URL" {
             let url = URL(string: (tableView.cellForRow(at: indexPath)?.detailTextLabel?.text!)!)
             if UIApplication.shared.canOpenURL(url!) {
