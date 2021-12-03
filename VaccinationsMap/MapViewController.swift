@@ -2,6 +2,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import FloatingPanel
+import SwiftUI
 
 let vaccinationNameList = [["ロタ", "ヒブ", "小児肺炎", "B型肝炎", "4種混合", "MR", "水痘", "日本脳炎", "2種混合", "子宮頸がん", "インフル", "BCG"]]
 
@@ -95,12 +96,25 @@ class MapViewController: UIViewController {
     }
     
     
-    @objc func buttonTapped(_ sender: Any) {
+    @objc func fujibuttonTapped(_ sender: Any) {
         let url = URL(string: "https://www.city.fuji.shizuoka.jp/kenkou/c0107/fmervo0000001149.html")
         if UIApplication.shared.canOpenURL(url!) {
             UIApplication.shared.open(url!)
         }
     }
+    
+    @objc func zoomInTapped(_ sender: Any) {
+        let span = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta / 2, longitudeDelta: mapView.region.span.longitudeDelta / 2)
+        let region = MKCoordinateRegion(center: mapView.region.center, span: span)
+        self.mapView.region = region
+    }
+    
+    @objc func zoomOutTapped(_ sender: Any) {
+        let span = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta * 2, longitudeDelta: mapView.region.span.longitudeDelta * 2)
+        let region = MKCoordinateRegion(center: mapView.region.center, span: span)
+        self.mapView.region = region
+    }
+    
     // fpcの型を宣言
     var fpc: FloatingPanelController!
     
@@ -152,13 +166,28 @@ class MapViewController: UIViewController {
         
         ListModalVC.delegate = self
         
-        let button = UIButton()
+        let fujibutton = UIButton()
+        fujibutton.frame = CGRect(x: 10, y: 50, width: 30, height: 30)
+        fujibutton.setImage(UIImage(named: "fuji"), for: .normal)
+        fujibutton.addTarget(self, action: #selector(MapViewController.fujibuttonTapped(_:)), for: .touchUpInside)
         
-        button.frame = CGRect(x: 10, y: 50, width: 30, height: 30)
-        button.setImage(UIImage(named: "fuji"), for: .normal)
-        button.addTarget(self, action: #selector(MapViewController.buttonTapped(_:)), for: .touchUpInside)
+        let zoomIn = UIButton()
+        zoomIn.frame = CGRect(x: 10, y: 100, width: 30, height: 30)
+        zoomIn.setTitle("➕", for: .normal)
+        zoomIn.backgroundColor = .lightGray
+        zoomIn.layer.cornerRadius = 15
+        zoomIn.addTarget(self, action: #selector(MapViewController.zoomInTapped(_:)), for: .touchUpInside)
         
-        mapView.addSubview(button)
+        let zoomOut = UIButton()
+        zoomOut.frame = CGRect(x: 10, y: 140, width: 30, height: 30)
+        zoomOut.setTitle("➖", for: .normal)
+        zoomOut.backgroundColor = .lightGray
+        zoomOut.layer.cornerRadius = 15
+        zoomOut.addTarget(self, action: #selector(MapViewController.zoomOutTapped(_:)), for: .touchUpInside)
+        
+        mapView.addSubview(fujibutton)
+        mapView.addSubview(zoomIn)
+        mapView.addSubview(zoomOut)
     }
     
 }
@@ -178,8 +207,13 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        let button = UIButton()
+        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.setTitle("経路", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
         for view in views {
-            view.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            view.rightCalloutAccessoryView = button
         }
     }
     
@@ -206,8 +240,8 @@ extension MapViewController: MKMapViewDelegate {
             let route = directionResponse.routes[0]
             self.mapView.addOverlay(route.polyline, level: .aboveRoads)
             // 表示のregionを指定
-            let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+//            let rect = route.polyline.boundingMapRect
+//            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         }
     }
     
