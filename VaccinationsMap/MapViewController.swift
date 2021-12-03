@@ -177,6 +177,47 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        for view in views {
+            view.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.mapView.removeOverlays(mapView.overlays)
+        let myLocation = mapView.userLocation.coordinate
+        let destination = view.annotation?.coordinate
+        let myPlacemark = MKPlacemark(coordinate: myLocation)
+        let destinationPlacemark = MKPlacemark(coordinate: destination!)
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = MKMapItem(placemark: myPlacemark)
+        directionRequest.destination = MKMapItem(placemark: destinationPlacemark)
+        directionRequest.transportType = .automobile
+        
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate { (response, error) in
+            guard let directionResponse = response else {
+                if let error = error {
+                    debugPrint("calculation error of directions")
+                }
+                return
+            }
+            // ルートを追加
+            let route = directionResponse.routes[0]
+            self.mapView.addOverlay(route.polyline, level: .aboveRoads)
+            // 表示のregionを指定
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = .systemBlue
+        renderer.lineWidth = 4.0
+        return renderer
+    }
+    
     // pinをタップしたときのevent
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation {

@@ -18,9 +18,16 @@ class VaccinationsMapTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testDetailVC() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        class DVCMock: DetailViewController {
+            
+        }
+        let dvcm = DVCMock(sectionName: "フィランセ")
+        XCTAssertEqual(dvcm.vaccinationFacility[0], ["✖︎", "✖︎", "✖︎", "✖︎", "✖︎", "✖︎", "✖︎", "✖︎", "✖︎", "✖︎", "✖︎", "○"])
+        XCTAssertEqual(dvcm.tableText[0], "富士市本市場432-1")
+        XCTAssertEqual(dvcm.tableText[1], "0545648990")
     }
 
     func testPerformanceExample() throws {
